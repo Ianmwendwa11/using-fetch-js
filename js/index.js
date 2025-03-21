@@ -36,16 +36,33 @@ function displayProduct(products){
             <div>$${product.price}</div>
             <div id="buttons">
             <button class="one update">Update</button>
-            <button class="one delete">Delete</button>
+            <button id="delete-btn" class="one delete" onclick="deleteProduct(${product.id})">Delete</button>
             </div>
         </div>
     `
         product_catalog.innerHTML += html
+
+        // let btn = document.getElementById('delete-btn')
+        
+        // btn.addEventListener('click', () => deleteProduct(product.id))
     })
     
 }
 
-function deleteProduct(product){
+function deleteProduct(product_id){
+
+    console.log("------------------------------")
+    console.log(product_id)
+    fetch(`${base_url}/${product_id}`, {
+        method: "DELETE",
+        headers: {
+            "Content-Type" : "application/json"
+        }
+    })
+    .then(res => res.json())
+    .then(data => console.log(data))
+    .catch(error => console.log(error))
+
 
 }
 
@@ -55,8 +72,9 @@ function updateProduct(product){
 
 
     let form = document.getElementById('form')
-    form.addEventListener('submit', (event) => {
-        event.preventDefault()
+    form.addEventListener('submit', handleSubmit)
+function handleSubmit(event){
+    event.preventDefault()
         let product_title = document.getElementById('title').value
         let product_image = document.getElementById('image').value
         let product_price = document.getElementById('price').value
@@ -71,6 +89,10 @@ function updateProduct(product){
             category: product_category
         }
 
+        postProduct(product_object)
+}
+
+    function postProduct(product_object){
         fetch(base_url,{
             method: "POST",
             headers : {
@@ -78,11 +100,10 @@ function updateProduct(product){
             },
             body: JSON.stringify(product_object)
         })
-        .then(RES => res.json())
+        .then(res => res.json())
         .then(data => console.log(data))
         .catch(err => console.log(err))
-
-    })
+    }
     
 
 

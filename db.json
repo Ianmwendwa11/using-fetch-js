@@ -254,6 +254,26 @@
       "price": "4000",
       "description": "Last trial",
       "category": "Sneakers"
+    },
+    {
+      "id": "43b0",
+      "title": "Boots",
+      "image": "https://images.unsplash.com/photo-1605733160314-4fc7dac4bb16?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fGJvb3RzfGVufDB8fDB8fHww",
+      "price": "3333",
+      "description": "This are boots",
+      "category": "Men clothing"
+    },
+    {
+      "id": "c6ee",
+      "title": "Wallet",
+      "price": 109.95,
+      "description": "What is in your wallet",
+      "category": "men's clothing",
+      "image": "https://images.unsplash.com/photo-1614330315526-166f2d71e544?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fHdhbGxldHxlbnwwfHwwfHx8MA%3D%3D",
+      "rating": {
+        "rate": 3.9,
+        "count": 120
+      }
     }
   ]
 }
